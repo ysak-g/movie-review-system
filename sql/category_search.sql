@@ -1,0 +1,2 @@
+-- Find count of all the movies with different categories where the count is more than 10
+SELECT movie.movie_name,COUNT(movie_category.category_id) AS category_count FROM movie_category JOIN movie ON movie.id=movie_category.movie_id GROUP BY movie_category.movie_id HAVING category_count > 10;

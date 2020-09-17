@@ -1,0 +1,57 @@
+create database movie_review;
+use movie_review;
+
+Table 1 - user
+
++----------------+--------------+------+-----+---------+----------------+
+| Field          | Type         | Null | Key | Default | Extra          |
++----------------+--------------+------+-----+---------+----------------+
+| id             | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name           | varchar(255) | YES  |     | NULL    |                |
+| email          | varchar(255) | YES  |     | NULL    |                |
+| password       | varchar(255) | YES  |     | NULL    |                |
+| contact_number | varchar(255) | YES  |     | NULL    |                |
+| address        | varchar(255) | YES  |     | NULL    |                |
++----------------+--------------+------+-----+---------+----------------+
+
+Table 2 - movie
+
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| movie_name | varchar(255) | YES  |     | NULL    |                |
+| year       | varchar(255) | YES  |     | NULL    |                |
+| duration   | varchar(255) | YES  |     | NULL    |                |
+| user_id    | int(11)      | YES  | MUL | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+
+Table 3 - movie_review
+
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+| comment  | varchar(255) | YES  |     | NULL    |                |
+| movie_id | int(11)      | YES  | MUL | NULL    |                |
+| user_id  | int(11)      | YES  | MUL | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+
+Table 4 - category
+
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(255) | YES  |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+
+Relationship Table - movie_category
+
++-------------+---------+------+-----+---------+----------------+
+| Field       | Type    | Null | Key | Default | Extra          |
++-------------+---------+------+-----+---------+----------------+
+| id          | int(11) | NO   | PRI | NULL    | auto_increment |
+| movie_id    | int(11) | YES  | MUL | NULL    |                |
+| category_id | int(11) | YES  | MUL | NULL    |                |
++-------------+---------+------+-----+---------+----------------+
